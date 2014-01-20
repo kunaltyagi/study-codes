@@ -28,6 +28,7 @@ class Polynomial:
         print super_add
 
     def fill_powers(self,x):
+        self.binary=bin(x)[2:]
         self.length=len(self.binary)
         index=0
         self.powers=[]
@@ -39,3 +40,20 @@ class Polynomial:
             self.powers.append(product)
             index+=1
 
+    def multiply(self,A,x):   #A is a Polynomial
+        print "working"
+        total_length=A.degree+self.degree
+        degree=self.degree
+        tmp=[]
+        while(total_length > self.degree):
+            self.coeff.append(0)
+            self.degree+=1
+        self.fill_powers(x)
+        for i in range(0,total_length+1):
+            add=0
+            for j in range(0,i+1):
+                if (j <= degree && i-j <=A.degree)
+                    add+=self.coeff[j]*A.coeff[i-j]
+            tmp.append(add)
+        self.coeff=tmp[:]
+        self.compute(x)
