@@ -2,7 +2,6 @@
 A>
 The i-th prefix average of an array X is average of the first (i + 1) elements of X: A[i] = (X[0] + X[1] + ... + X[i])/(i+1). Present two algorithms for computing the array A of
 prefix averages of another array X (problem discussed on page 33 of notes of 17th Jan). Analyse the running time of each algorithm.
-DONE
 
 B>
 1. Consider an array containing n integers a_0, a_1, a_2, .... , a_(n-1).
