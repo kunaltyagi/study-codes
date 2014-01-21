@@ -4,12 +4,12 @@ class Vector2D{
     ArrayList<Integer> v;
 
     public Vector2D(Vector2D x){
-	v = new ArrayList<Integer>( x.v.size());
+    v = new ArrayList<Integer>( x.v.size());
         for(int i=0; i<x.v.size(); i++){
             v.add( x.v.get(i) );
         }
     }
-        
+
     public Vector2D(int n){
         v = new ArrayList<Integer>(n);
         for(int i=0; i<n; i++){

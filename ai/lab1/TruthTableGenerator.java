@@ -16,9 +16,9 @@ class TruthTableGenerator {
     final static int PALINDROME  = 6; 
     final static int EVEN_PARITY  = 7;
     final static int MAJORITY = 8;
-    
+
     final static int MANUAL = 100;
-    
+
     //for n boolean input variables
     public TruthTableGenerator(int n){
         this.n = n;
@@ -29,8 +29,8 @@ class TruthTableGenerator {
         setFuncType(NAND);
 
         //tt = generateTT();
-    }    
-    
+    }
+
     ArrayList<Vector2D> generateTT(){
         ArrayList<Vector2D> ttn = new ArrayList<Vector2D>();
         for(int i=0; i<(int)Math.pow(2,n); i++){
@@ -65,22 +65,22 @@ class TruthTableGenerator {
             result = !result;
 
             break;
-            
+
             case AND:
             result = (vn.v.get(0)==1?true:false);
             for(int i=1; i<vn.v.size(); i++){
                 result &= (vn.v.get(i)==1?true:false);
             }
- 
+
             break;
-            
+
             case OR:
             result = (vn.v.get(0)==1?true:false);
             for(int i=1; i<vn.v.size(); i++){
                 result |= (vn.v.get(i)==1?true:false);
             }
             break;
-            
+
             case NOR:
             result = (vn.v.get(0)==1?true:false);
             for(int i=1; i<vn.v.size(); i++){
@@ -88,7 +88,7 @@ class TruthTableGenerator {
             }
             result = !result;
             break;
-            
+
             case XOR:
             result = (vn.v.get(0)==1?true:false);
             for(int i=1; i<vn.v.size(); i++){
@@ -121,7 +121,7 @@ class TruthTableGenerator {
             for(int i=1; i<vn.v.size(); i++){
                 result = (vn.v.get(i)==1?result^true:result);
             }
-      
+
             break;
 
             case MAJORITY:
@@ -139,7 +139,7 @@ class TruthTableGenerator {
             Scanner s = new Scanner(System.in);
             System.out.print("Enter the truth value for "+vn.v+" :");
             int i = s.nextInt();
-            
+
             result = (i==0?false:true);
             break;
         }

@@ -18,7 +18,7 @@ class PerceptronTrainer{
         //1. Accept tt
         this.tt = tt;
         //2. Augment it(skip if already augmented)
-        
+
         //3. Negate zero classes
         for(int i=0; i<tt.size(); i++){
             Vector2D v = tt.get(i);
@@ -31,7 +31,7 @@ class PerceptronTrainer{
         }
         //4. Assume random w
         Vector2D w = new Vector2D(tt.get(0).v.size());
-        
+
         //5. Iterate over all xi
         //6.a. If test succeeds, return w
         //6.b. If test fails, w = w + xi(fail) & goto step 5
@@ -108,6 +108,6 @@ class PerceptronTrainer{
         tt_gen.setFuncType(TruthTableGenerator.NAND);
         tt = tt_gen.generateTT();
         pt.train(tt);
-        
+
     }
 }
