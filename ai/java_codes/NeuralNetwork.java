@@ -11,4 +11,8 @@ class NeuralNetwork{
             v.add(world.get(i));
         }
     }
+
+    public add_layer(NeuralLayer layer){
+        network.add(NeuralLayer(layer.level));
+    }
 }

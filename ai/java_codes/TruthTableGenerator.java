@@ -5,7 +5,9 @@ class TruthTableGenerator {
 
     ArrayList <Vector2D> tt;
     int n;
-    int funcType;
+
+/*    enum FuncType {AND, OR, NAND, NOR, XOR, XNOR, PLAINDROME, EVEN_PARITY, MAJORITY , MANUAL}
+        FuncType*/int funcType;
 
     final static int AND  = 0;
     final static int OR   = 1;
