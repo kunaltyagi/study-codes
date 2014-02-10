@@ -1,1 +1,2 @@
 Make modular codes so that the common puzzles can be made into a game, and possibly an app.
+Develop structure to make solving games of the format NxN with value range (1,N+1) easy
