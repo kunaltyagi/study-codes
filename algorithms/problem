@@ -127,3 +127,44 @@ to run on machine B for 2,000 items if the algorithm is:
         b. quadratic
         c. O ( N 3 )
         d. O( N log N )
+
+E>
+==
+Find algorithm for span of A[i] in an array A, where span(A[i])=number of A[j] such that A[j]<=A[i] and j<=i, 0<=i<N, with and without stack
+
+F>
+==
+Find correctness of the brackets in an expression like '(()){[()[]]}' with and without stacks
+
+G>
+==
+Complete implementing the functions of this class in response to the homework problem: Suppose you want to implement a `list', not as a linked list, but as an array of nodes (Node[] nodeList)
+so that you could
+        (a) insert at the head
+        (b) insert at the tail
+        (c) delete at the head
+        (d) delete at the tail.
+Analyse your choice of implementation for worst case running time for (a)
+through (d)
+
+H>
+==
+1] Suppose you were asked to implement a stack using one or more queues. What is the best implementation possible (in terms of efficiency of the push and pop operations)?
+2] Now suppose you were asked to implement a queue using one or more stacks. Again, what is the best implementation possible (in terms of efficiency of the enqueue and dequeue operations)?
+
+I>
+==
+A large D-Mart store maintains some unique integer ID for each packet in the store. For example, a particular packet of "chilka wala moong dal" could have an id "250" while another particular
+packet of "tuar dal" could have an id "127". Let "n1" be the number of new packets that are brought into the store every unit of time and "n2" the number of packets that are deleted (sold)
+from the store every unit of time (the unit of time could be an hour, 3 hours, day, etc). Let "k" be the number of packets that are searched for in store every unit of time (again, the unit
+of time could be an hour, 3 hours, day, etc). Inserted, deletion and search always happen based on id.
+For each of the following scenarios, design and implement efficient data structures (and their methods). Present analysis of the running times (in terms of big-Oh):
+        1] DS1: The values of "n1" and "n2" are insignificantly small compared to the values of "k". The data structure should be somewhat memory friendly. 
+        2] DS2: The values of "k" and "n2" are insignificantly small compared to the values of "n1". The data structure should be somewhat memory friendly.
+        3] DS4: The values of "k", "n1" and "n2" are all comparable. The data structure should be somewhat memory friendly.
+        4] DS3: The values of "k", "n1" and "n2" are all comparable. But the memory available is unlimited.
+Also present analytical and experimental insights into when (say in terms of relative values of "n1", "n2", "k")  it will make sense to move from the choice of one data structure to
+another, especially between DS1, DS2 and DS3.
+
+J>
+==
