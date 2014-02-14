@@ -1,0 +1,8 @@
+Different ways to implement maps:
+
+DoublyLinkedLists
+Heap
+HashKeyTable
+Sorted
+Probabilistic Structures like Bloom Filters
+SkipList
