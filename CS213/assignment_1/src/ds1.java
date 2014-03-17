@@ -4,9 +4,7 @@ import java.util.Scanner;
 public class ds1 {
 	public static boolean Bsearch(int elem, int start, int mid, int end, int ids[])
 	{
-	 System.out.println("start "+ start);
-	 System.out.println("mid "+mid);
-	 System.out.println("end "+end);
+	 
 	
      if(elem==ids[start]||elem==ids[end]||elem==ids[mid])
 		 return true;
