@@ -17,6 +17,7 @@ public class DLArray {
     private HashTable table;
     private String key;
     private int seed;
+    private int index;
     
     public DLArray()    {
         Data = "";
@@ -36,10 +37,10 @@ public class DLArray {
         if(size >= M)   {
             return false;
         }
-        int index = search(newItem);
-        if(index == -1 || array[index].getAmount() == 0)    {
+        int searchResult = search(newItem);
+        if(searchResult == -1 || array[index].getAmount() == 0)    {
             size++;
-            array[table.arrayIndex(M)] = newItem;
+            array[index] = newItem;
             return true;
         }
         else if (index > -1)    {
@@ -54,7 +55,8 @@ public class DLArray {
     }
     
     public int search(Item checkItem)   {
-        int index = 0, i=0, secondIndex = 0;
+        index = 0;
+        int i=0, secondIndex = 0;
         table.hashify(checkItem);
         index = table.arrayIndex(M);
         //System.out.println(index);
@@ -63,7 +65,7 @@ public class DLArray {
             if(array[index].getId() == checkItem.getId()) {
                 return index;
             }
-            secondIndex = table.arrayIndex(N);
+            secondIndex = table.arrayIndex2(N);
             while(array[index].getAmount() != 0)    {
                 i++;
                 if(i==M)    {
