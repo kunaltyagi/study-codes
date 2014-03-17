@@ -1,6 +1,11 @@
 package ds4;
 
+/**
+ * @author kunaltyagi
+ */
+
 public class Item	{
+    // A more updated version of Abhinav's Item class, built for storage in my DLArray
 	private int id;
 	private String name;
         private int amount;
