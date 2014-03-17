@@ -74,6 +74,18 @@ public class HashTable {
 
         return h1;
     }
+    
+    public long djb2_32_gc(String key)
+    {
+        long hash = 5381;
+        byte[] data = key.getBytes();
+
+        for ( byte b : data )   {
+            hash = ((hash << 5) + hash) + b;
+        }
+
+        return hash;
+    }
 
     public long fnv1a_32_gc(String key)  {
         long hash = (long)14695981039346656037;
@@ -122,10 +134,10 @@ public class HashTable {
     
     public int arrayIndex2(int index)   {
         if(index == 0)  {
-            return (int)(Math.abs(fnv1a_32_gc(_key)) % M);
+            return (int)(Math.abs(djb2_32_gc(_key)) % M);
         }
         else    {
-            return (int)(Math.abs(fnv1a_32_gc(_key)) % index);
+            return (int)(Math.abs(djb2_32_gc(_key)) % index);
         }
     }
 

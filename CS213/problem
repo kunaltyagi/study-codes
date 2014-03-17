@@ -1,0 +1,170 @@
+
+A>
+==
+The i-th prefix average of an array X is average of the first (i + 1) elements of X: A[i] = (X[0] + X[1] + ... + X[i])/(i+1). Present two algorithms for computing the array A of
+prefix averages of another array X (problem discussed on page 33 of notes of 17th Jan). Analyse the running time of each algorithm.
+
+B>
+==
+1. Consider an array containing n integers a_0, a_1, a_2, .... , a_(n-1).
+
+
+Describe efficient algorithms for the following problems. Analyze the running time of your algorithms. For these problems, subsequence means a consecutive subsequence of numbers from some a_i to a_j.
+
+        a) Find the longest strictly increasing subsequence.
+
+@TODO   b) Find the shortest subsequence with sum >= a specified number M. Shortest means containing fewest possible numbers. Find the longest subsequence with sum <= a specified number M.
+
+@TODO   c) Find a subsequence with minimum positive sum.
+
+        d) Break the sequence into 2 disjoint subsequences such that maximum sum of the subsequences is minimized. Do the same for 3 disjoint subsequences.
+
+
+2. Show that x^n can be computed using O(log n) multiplications. Using the same idea, show that the nth Fibonacci number can be computed using O(log n) arithmetic operations. The Fibonacci numbers are defined by f_0 = f_1 = 1 and f_n = f_(n-1) + f_{n-2) for n >= 2.
+
+3. How many arithmetic operations are required to evaluate a polynomial of degree n in one variable with integer coefficients? How many operations are required to multiply two such polynomials?
+
+C>
+==
+Find a O(N) algorithm to find the maximum sum subsequence.
+
+D>
+==
+1. Give an efﬁcient algorithm to determine whether an integer i exists such that A[i] = i in an array of increasing integers. What is the running time of your algorithm?
+
+2. A prime number has no factors besides 1 and itself. Do the following:
+        a. Write a program to determine if a positive integer N is prime. In terms of N, what is the worst-case running time of your program?
+        b. Let B equal the number of bits in the binary representation of N. What is the value of B?
+        c. In terms of B, what is the worst-case running time of your program?
+        d. Compare the running times to determine if a 20-bit number and a 40-bit number are prime.
+
+3. An important problem in numerical analysis is to ﬁnd a solution to the equation F(X)=0 for some arbitrary F. If the function is continuous and has two points low and high such that
+F(low) and F(high) have opposite signs, then a root must exist between low and high and can be found by either a binary search or an interpolation search. Write a function that takes
+as parameters F, low, and high and solves for a zero. What must you do to ensure termination?
+
+4. A majority element in an array A of size N is an element that appears more than N⁄2 times (thus there is at most one such element). For example, the array 3, 3, 4, 2, 4, 4, 2, 4, 4 has
+a majority element (4), whereas the array 3, 3, 4, 2, 4, 4, 2, 4 does not. Give an algorithm to ﬁnd a majority element if one exists, or reports that one does not. What is the running
+time of your algorithm? (Hint: There is an O(N) solution.)
+
+5. The input is an N × N matrix of numbers that is already in memory. Each individual row is increasing from left to right. Each individual column is increasing from top to bottom. Give an
+O(N) worst-case algorithm that decides if a number X is in the matrix.
+
+6. Design efﬁcient algorithms that take an array "a" of positive numbers and determine
+        a. The maximum value of a[j]+a[i] , for j ≥ i
+        b. The maximum value of a[j]-a[i] , for j ≥ i
+        c. The maximum value of a[j]*a[i] , for j ≥ i
+        d. The maximum value of a[j]/a[i] , for j ≥ i
+
+7. Suppose that when the capacity of an ArrayList is increased, it is always doubled. If an ArrayList stores N items, and started with an initial capacity of 1, what is the maximum number
+of times that an ArrayList’s capacity could have been increased?
+
+8. The ArrayList class in java.util always increases the capacity by 50%. What is the maximum number of times that its capacity can be increased?
+
+9. The ArrayList class contains a trim method that resizes the internal array to exactly the capacity. The trim method is intended to be used after all the items have been added to the
+ArrayList, in order to avoid wasting space. Suppose, however, the novice programmer invokes trim after each add. In that case, what is the running time of building an N-item ArrayList?
+Write a program that performs 100,000 adds to an ArrayList and illustrates the novice’s error.
+
+10. Because a String is immutable, a String concatenation of the form str1+=str2 takes time that is proportional to the length of the resulting string, even if str2 is very short. What is the
+running time of the code in Figure 5.15, assuming that the array has N items?
+```
+public static String toString( Object [ ] arr )
+{
+    String result = " [";
+    for( String s : arr )
+        result += s + " ";
+
+        result += "]";
+
+        return result;
+}
+```
+
+11. Consider the following method, whose implementation is shown:
+```
+// Precondition: m represents matrix with N rows, N columns in each row, elements are increasing in each column, elements are increasing
+// Postcondition: returns true if some element in m stores val, returns false otherwise
+
+public static boolean contains( int [ ] [ ] m, int val )
+{
+    int N = m.length;
+    for( int r = 0; r < N; r++ )
+        for( int c = 0; c < N; c++ )
+            if( m[ r ][ c ] == val )
+                return true;
+                return false;
+
+
+}
+```
+An example of a matrix that satisﬁes the stated precondition is
+```
+int [ ] [ ] m1 = {
+    { 4, 6, 8 },
+    { 5, 9, 11 },
+    { 7, 11, 14 } };
+```
+        a. What is the running time of contains?
+        b. Suppose it takes 4 seconds to run contains on a 100-by-100 matrix. Assuming that low-order terms are negligible, how long will it take to run contains on a 400-by-400 matrix?
+        c. Suppose contains is rewritten so that the algorithm performs a binary search on each row, returning true if any of the rowsearches succeed, and false otherwise. What is the running
+        time of this revised version of contains?
+
+12. Construct an example whereby an interpolation search examines every element in the input array.
+
+13. Analyze the cost of an average successful search for the binary search algorithm.
+
+14. Integers in Java range from –231 to 231 – 1. Consequently, if we have a large array with more than 230 elements, computing the midpoint of a subarray using mid=(low+high)/2 will cause
+low+high to overﬂow the integer range if the midpoint resides past array index 230.
+        a. How large is 230?
+        b. Show that (low +(high-low)/2) is a computationally equivalent calculation that does not overﬂow in this situation.
+        c. How large can an array be using the modiﬁcation suggested in part (b)?
+
+15. Order the following functions by growth rate: N, N^0.5, N^1.5, N^2, Nlog N, NloglogN, N(logN)^2, Nlog(N^2), 2⁄N, 2^N, 2^(N/2), 37, N^3, and N^2 log N . Indicate which functions grow at
+the same rate.
+
+16. For 1,000 items, our algorithm takes 10 sec. to run on machine A, but now you replace the machine with machine B that is 2 times as fast. Approximately how long will the algorithm take
+to run on machine B for 2,000 items if the algorithm is:
+        a. linear
+        b. quadratic
+        c. O ( N 3 )
+        d. O( N log N )
+
+E>
+==
+Find algorithm for span of A[i] in an array A, where span(A[i])=number of A[j] such that A[j]<=A[i] and j<=i, 0<=i<N, with and without stack
+
+F>
+==
+Find correctness of the brackets in an expression like '(()){[()[]]}' with and without stacks
+
+G>
+==
+Complete implementing the functions of this class in response to the homework problem: Suppose you want to implement a `list', not as a linked list, but as an array of nodes (Node[] nodeList)
+so that you could
+        (a) insert at the head
+        (b) insert at the tail
+        (c) delete at the head
+        (d) delete at the tail.
+Analyse your choice of implementation for worst case running time for (a)
+through (d)
+
+H>
+==
+1] Suppose you were asked to implement a stack using one or more queues. What is the best implementation possible (in terms of efficiency of the push and pop operations)?
+2] Now suppose you were asked to implement a queue using one or more stacks. Again, what is the best implementation possible (in terms of efficiency of the enqueue and dequeue operations)?
+
+I>
+==
+A large D-Mart store maintains some unique integer ID for each packet in the store. For example, a particular packet of "chilka wala moong dal" could have an id "250" while another particular
+packet of "tuar dal" could have an id "127". Let "n1" be the number of new packets that are brought into the store every unit of time and "n2" the number of packets that are deleted (sold)
+from the store every unit of time (the unit of time could be an hour, 3 hours, day, etc). Let "k" be the number of packets that are searched for in store every unit of time (again, the unit
+of time could be an hour, 3 hours, day, etc). Inserted, deletion and search always happen based on id.
+For each of the following scenarios, design and implement efficient data structures (and their methods). Present analysis of the running times (in terms of big-Oh):
+        1] DS1: The values of "n1" and "n2" are insignificantly small compared to the values of "k". The data structure should be somewhat memory friendly. 
+        2] DS2: The values of "k" and "n2" are insignificantly small compared to the values of "n1". The data structure should be somewhat memory friendly.
+        3] DS4: The values of "k", "n1" and "n2" are all comparable. The data structure should be somewhat memory friendly.
+        4] DS3: The values of "k", "n1" and "n2" are all comparable. But the memory available is unlimited.
+Also present analytical and experimental insights into when (say in terms of relative values of "n1", "n2", "k")  it will make sense to move from the choice of one data structure to
+another, especially between DS1, DS2 and DS3.
+
+J>
+==
