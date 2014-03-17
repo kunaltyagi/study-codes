@@ -69,9 +69,9 @@ int main()
     char cont;
     long int pos,searchid,foundid;
     int choice;
-    long int newid,deleteid;
+    long int newid,deleteid,index;
     char newproduct[50];
-    int flag1,flag;
+    int flag1,flag,flag2;
     clock_t tStart ;
     cout<<"Enter the initial size of the empty array for database storage:";
     cin>>size;
@@ -89,12 +89,15 @@ int main()
     {
         if(i<populate)
         {
-        products[i].assign(rand()%1000000,"Naveen");
+        products[i].assign(rand()%100000,"Naveen");
         //products[i].print();
         }
     }
+   
     
     pos = populate-1;                                   // position of last element
+    
+
 
    cout<<"The Database has been populated..";   // Interface
     
@@ -139,28 +142,30 @@ int main()
         
         if(choice==2)                                   // insertion for a given input id and product name = n1*O(1)
         {
-            
+            flag2=0;
             cout<<"\nEnter the product id to be added:";
             cin>>newid;
             cout<<"\nEnter new product name:";
             cin>>newproduct;
             tStart = clock();
-            if(pos < size-1)
+            if(pos < size-1)                // pos=8, size-1=9
             {
+                
+                products[pos+1].assign(newid,newproduct);
                 pos=pos+1;
-                products[pos].assign(newid,newproduct);
                 
                 
                 
                 cout<<"\nNew product added....Database updated";
                 cout<<"\nTime taken for insertion when there is space in database:"<<(double)(clock() - tStart)/CLOCKS_PER_SEC<<endl;
+                flag2=1;
             }
 
             tStart = clock();
-            if(pos>=size-1)
+            if(pos>=size-1 && flag2==0)
             {
                 dmart* temp = new dmart[size*2];
-                for( long int i=0;i<pos;i++)
+                for( long int i=0;i<pos+1;i++)
                 {
                     temp[i]=products[i];
                     
@@ -169,7 +174,13 @@ int main()
                 delete [] products;
                 products = temp;
                 pos=pos+1;
+                
                 size=size*2;
+              /*  for(i=0;i<pos+1;i++)
+                {
+                    cout<<endl;
+                    products[i].print();
+                } */
                 products[pos].assign(newid,newproduct);
                
                 
@@ -194,29 +205,37 @@ int main()
                 if(foundid==deleteid)
                 {
                     flag1=1;
-                    if(i<pos)
-                    {
-                        products[i]=products[i+1];
-                    }
-                    else
-                        products[i].assign(0, "\0");
-                    
+                    index=i;
+                    break;
+                }
+            }
+            
+            for (i=index;i<pos;i++)
+            {
+                products[i]=products[i+1];
+            }
+            
+            
+            
+            
                     
                     cout<<"\nThe product was deleted from the database";
                     cout<<"\nTime required for successfull deletion:"<<(double)(clock() - tStart)/CLOCKS_PER_SEC;
-                    break;
+            
                         
                         
                     
-                }
-            }
+            
+            
+            pos=pos-1;
             
             if(flag1==0)
             {
                 cout<<"\nThe product id was not found.Sorry:(";
             }
-            
         }
+        
+        
         
         
         if(choice==4)
@@ -224,10 +243,11 @@ int main()
             cout<<"\n\nThe size of the database is : "<<pos+1;
         }
         
+        cout<<endl;
+     
         
-    
-      
-    
+        
+        
     
     cout<<"\nContinue to main menu?(Y/N):";
         cin>>cont;
