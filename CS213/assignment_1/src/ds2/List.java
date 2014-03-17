@@ -1,3 +1,5 @@
+package ds2;
+
 public class List	{
 	protected int size;
 	protected DLNode head, tail;
