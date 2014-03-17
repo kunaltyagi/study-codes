@@ -1,11 +1,15 @@
-package ds2;
-
 public class List	{
 	protected int size;
 	protected DLNode head, tail;
 	public List()	{
 		head = new DLNode();
 		tail = new DLNode();
+		head.setNext(tail);
+		tail.setPrev(head);
+		size = 0;
+	}
+		// Clears the list
+	public void clear()	{
 		head.setNext(tail);
 		tail.setPrev(head);
 		size = 0;
@@ -49,9 +53,10 @@ public class List	{
 	}
 
 	public void print()	{
-		DLNode current = head;
+		DLNode current = head.getNext();
 		while (current.getNext() != null)	{
 			System.out.println(current.getElement());
+			current.getElement().print();
 			current = current.getNext();
 		}
 	}
