@@ -16,12 +16,12 @@ public class DLArray {
     
     public DLArray()    {
         Data = "";
-        M = 3571;
-        N = 2897;
-        size = 0;
+        M = 3571;       // Sufficiently large prime
+        N = 2897;       // Sufficiently large, but smaller than M
+        size = 0;       //Number of elements in Array
         array =  new Item[M+1];
-        key = "ThhCFXjWLL1ZFj";
-        seed = 2097593 + (int)System.currentTimeMillis();
+        key = "ThhCFXjWLL1ZFj"; // to be hashed
+        seed = 2097593 + (int)System.currentTimeMillis();   //Random large prime, plus some noise, idealy should be randomized, but whatever
         table = new HashTable(key, seed, M);
         for(int i = 0; i < M; ++i)  {
             array[i] = new Item(0, "empty", 0);
@@ -33,12 +33,13 @@ public class DLArray {
             return false;
         }
         int searchResult = search(newItem);
-        if(searchResult == -1 || array[index].getAmount() == 0)    {
+
+        if(searchResult == -1 && array[index].getAmount() == 0)    {
             size++;
             array[index] = newItem;
             return true;
         }
-        else if (index > -1)    {
+        else if (searchResult > -1)    {
             array[index].setAmount(array[index].getAmount()+newItem.getAmount());
             if(array[index].getAmount() < 0)    {
                 array[index].setAmount(0);
@@ -49,6 +50,8 @@ public class DLArray {
         return false;
     }
     
+    // return -1 if size over, or if empty place found
+    // return 0-M if same ID object found
     public int search(Item checkItem)   {
         index = 0;
         int i=0, secondIndex = 0;
@@ -63,7 +66,7 @@ public class DLArray {
             secondIndex = table.arrayIndex2(N);
             while(array[index].getAmount() != 0)    {
                 i++;
-                if(i==M)    {
+                if(i == M)    {
                     return -1;
                 }
                 index = index + i*secondIndex;
@@ -75,7 +78,7 @@ public class DLArray {
                 }
             }            
         }
-        return index;
+        return -1;
     }
     
     public boolean remove(Item newItem) {
