@@ -87,9 +87,9 @@ public class HashTable {
         return hash;
     }
 
-    /*public long fnv1a_32_gc(String key)  {
-        long hash = (long)14695981039346656037;
-        long mult = (long)1099511628211;
+    public long fnv1a_32_gc(String key)  {
+        long hash = -5472609002491880229L;//trick for 2's complements value of 14695981039346656037L
+        long mult = 1099511628211L;
         long mod  = (long)Math.pow(2,32);
 
         byte[] data = key.getBytes();
@@ -98,7 +98,7 @@ public class HashTable {
             hash = Math.abs((int)(hash*mult)% mod);            
         }
         return hash;
-    }*/
+    }
 
     public HashTable()   {
         _key  = "ThhCFXjWLL1ZFj";
