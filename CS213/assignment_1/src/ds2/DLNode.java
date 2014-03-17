@@ -1,5 +1,3 @@
-package ds2;
-
 public class DLNode	{
 	// Instance variables
 	private Item element;
