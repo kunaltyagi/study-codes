@@ -8,6 +8,9 @@ import java.math.BigInteger;
  */
 public class HashTable {
 
+    private String _key;
+    private long _seed;
+    private int M;
 
     /**
  * Java Implementation of MurmurHash3 (r136) (as of May 20, 2011)
@@ -18,10 +21,7 @@ public class HashTable {
  * @param {number} seed Positive integer only
  * @return {number} 32-bit positive integer hash
  */
-    private String _key;
-    private long _seed;
-    private int M;
-
+    
     public long murmurhash3_32_gc(String key, long seed) {
         long remainder, bytes, h1, h1b, c1, c1b, c2, c2b, k1;
             int i;
