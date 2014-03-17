@@ -87,7 +87,7 @@ public class HashTable {
         return hash;
     }
 
-    public long fnv1a_32_gc(String key)  {
+    /*public long fnv1a_32_gc(String key)  {
         long hash = (long)14695981039346656037;
         long mult = (long)1099511628211;
         long mod  = (long)Math.pow(2,32);
@@ -98,7 +98,7 @@ public class HashTable {
             hash = Math.abs((int)(hash*mult)% mod);            
         }
         return hash;
-    }
+    }*/
 
     public HashTable()   {
         _key  = "ThhCFXjWLL1ZFj";
