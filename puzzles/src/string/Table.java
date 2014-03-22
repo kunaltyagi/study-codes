@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *
  * @author kunaltyagi
  */
-public class String {
+public class Table {
     // a 2D area of puzzle
     private ArrayList<ArrayList<Cell>> table;
     int n, m;
@@ -14,14 +14,14 @@ public class String {
     int globalLevel;
     int globalLinkage;
     
-    public String()
+    public Table()
     {
         table = new ArrayList<ArrayList<Cell>>();
         n = m = type = 0;
         allocate();
         globalLevel = globalLinkage = 0;
     }
-    public String(int N, int M)
+    public Table(int N, int M)
     {
         table = new ArrayList<ArrayList<Cell>>();
         n = N;
@@ -30,7 +30,7 @@ public class String {
         allocate();
         globalLevel = globalLinkage = 0;
     }
-    public String(int N, int M, int game)
+    public Table(int N, int M, int game)
     {
         table = new ArrayList<ArrayList<Cell>>();
         n = N;
@@ -60,11 +60,5 @@ public class String {
     {
         globalLinkage = linkage;
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+    
 }
