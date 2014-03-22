@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package string;
 
 /**
@@ -24,6 +20,11 @@ public class Connection {
     public Connection(Field to, Field from)
     {
         NULL = new Field();
+        _to = to;
+        _from = from;
+    }
+    public void setConnection(Field to, Field from)
+    {
         _to = to;
         _from = from;
     }
