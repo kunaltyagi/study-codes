@@ -15,5 +15,7 @@ public class Tries {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        String random = "Hi, there";
+        System.out.println(random.length());        
     }
 }
