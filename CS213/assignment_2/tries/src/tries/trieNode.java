@@ -41,8 +41,27 @@ public class trieNode {
         return _child.add(newTrieNode);
     }
     
+    public boolean add(String word) {
+        if(word.charAt(0) == _char || _child.isEmpty()) {
+            _char = word.charAt(0); // in case of isEmpty() being true
+            _child.add(new trieNode(word.substring(1)));
+            if (word.length() == 1) {
+                _isWord = true;
+            }
+            else {
+                _isWord = false;
+            }
+            return true;
+        }
+        return false;
+    }
+    
     public int numberOfChildren() {
         return _child.size();
+    }
+    
+    public char getChar() {
+        return _char;
     }
     
 }
