@@ -14,9 +14,21 @@ public class Tries {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-   
-        // TODO code application logic here
-        String random = "2";
-        System.out.println(random.substring(1));        
+        
+        // init trie
+        trieNode root = new trieNode();
+        root.makeRoot();
+        
+        //get input, via function call, most likely
+        String word="celebration";
+        root.add(word);
+        word="celebrating";
+        root.add(word);
+        word="celebrate";
+        root.add(word);
+        word="cerebrum";
+        root.add(word);
+        
+        root.print();    
     }
 }
