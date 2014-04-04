@@ -22,4 +22,8 @@ public class Tries {
     public void print() {        
         root.print();    
     }
+    
+    public int prefixChildren(String prefix) {
+        return root.numberOfChildren();
+    }
 }

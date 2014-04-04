@@ -10,8 +10,7 @@ import tries.*;
 public class Parse {
     
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        //Tries trie = new Tries();
-        
+        Tries trie = new Tries();
         FileInputStream fstream = new FileInputStream
                 ("/home/kunaltyagi/workspace/studies/study-codes/CS213/assignment_2/tries/src/penn.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
@@ -22,8 +21,6 @@ public class Parse {
             for(int i = 0; i < line.length(); ++i) {
                 if(line.charAt(i) == '/')
                 {
-                    System.out.print(i);
-                    System.out.println(line.charAt(i));
                     if(i+1 < line.length()) {
                         type = line.substring(i+1);
                     }
@@ -32,12 +29,11 @@ public class Parse {
                        type = "NA";
                     }                   
                     if(i > 0) {
-                       word = line.substring(0, i-1);
+                       word = line.substring(0, i);
                     }
                     else {
                        word = " ";
                     }
-                   
                     break;
                 }
                 if(i+1 == line.length()) {
@@ -51,11 +47,11 @@ public class Parse {
                 word = " ";
                 type = "NA";
             }
-            //trie.add(word);
+            trie.add(word);
         }
         br.close();
         
-        //trie.print();
+        trie.print();
     }
     
 }
