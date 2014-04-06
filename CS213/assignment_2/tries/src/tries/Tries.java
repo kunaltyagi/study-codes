@@ -24,6 +24,6 @@ public class Tries {
     }
     
     public int prefixChildren(String prefix) {
-        return root.numberOfChildren();
+        return root.search(prefix);
     }
 }

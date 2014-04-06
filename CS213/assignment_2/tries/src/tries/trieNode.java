@@ -119,6 +119,26 @@ public class trieNode {
          */
     }
     
+    public int search(String prefix) {
+        if(prefix.length() == 1) {
+            return this.numberOfChildren();
+        }
+        else {
+            for(int i = 0; i < this.numberOfChildren(); ++i) {
+                if(_child.get(i)._char == prefix.charAt(0)) {
+                    return _child.get(i).search(prefix.substring(1));
+                }
+                else if(i >= this.numberOfChildren()) {
+                    return 0;
+                }
+                else {
+                    continue;
+                }
+            }
+            return 0;
+        }
+    }
+    
     public void print() {
         int depth = 0;
         System.out.print(_char);
